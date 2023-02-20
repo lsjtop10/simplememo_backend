@@ -1,10 +1,12 @@
+import { Request, Response } from "express-serve-static-core";
+
 const express = require('express');
 const app = express();
-const PORT = 80;
+const PORT = 8080;
 
-app.get('/', (req:any, res:any) => {
-  res.send('Hello World!');
-  console.log("Hello client");
+app.get('/', (req:Request, res:Response) => {
+  res.send('Hello World!! \n hello node');
+  console.log("Hello client!!");
 })
 
 app.listen(PORT, () => {

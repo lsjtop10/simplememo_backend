@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  api:
+    depends_on:
+      - mongodb
+      - mysql
+    build: ./api
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+      - .env.secure
+  mongodb:
+    build: ./database/mongodb
+    volumes:
+      - ./database/mongodb/db-data:/data/db
+    env_file:
+      - .env
+      - .env.secure
+  mysql:
+    build: ./database/mongodb
+    volumes:
+      - ./database/mysql/db-data:/var/lib/mysql
+    env_file:
+      - .env
+      - .env.secure
+
+
